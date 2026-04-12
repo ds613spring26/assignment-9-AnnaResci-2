@@ -123,3 +123,16 @@ emma_afinn %>%
     y = NULL
     )
 ```
+
+## Word Cloud 
+
+```{r}
+wordcloud(
+  words = emma_afinn$word,
+  freq = emma_afinn$n,
+  min.freq = 1,
+  max.words = 100,
+  random.order = FALSE,
+  colors = brewer.pal(8, "Set2")
+)
+```
