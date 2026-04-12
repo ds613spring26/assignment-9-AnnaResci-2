@@ -95,3 +95,17 @@ wordcloud(
   colors = brewer.pal(8, "Dark2")
 )
 ```
+
+## Step 3b: AFINN Sentiment Analysis (Positive)
+
+The AFINN lexicon assigns numeric sentiment scores. In this step, I select only words with positive sentiment (Score\>/= 1); then count and visualize the most frequent ones.
+
+```{r}
+emma_afinn <- emma_words %>%
+  inner_join(
+    get_sentiments("afinn") %>% filter(value >= 1),
+    by = "word"
+  ) %>%
+  count(word, sort = TRUE) %>%
+  filter(n > 50)
+```
