@@ -109,3 +109,17 @@ emma_afinn <- emma_words %>%
   count(word, sort = TRUE) %>%
   filter(n > 50)
 ```
+
+## Visualization (Bar Chart)
+
+```{r}
+emma_afinn %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = n, y = word)) +
+  geom_col(fill = "darkgreen") +
+  labs( 
+    title = "Positive Words in Emma (AFINN)",
+    x = "Frequency", 
+    y = NULL
+    )
+```
