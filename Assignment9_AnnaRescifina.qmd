@@ -150,3 +150,17 @@ emma_bing <- emma_words %>%
   count(word, sort = TRUE) %>%
   filter(n > 50)
 ```
+
+## Visualization (Bar Chart)
+
+```{r}
+emma_bing %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = n, y = word)) +
+  geom_col(fill = "purple") +
+  labs(
+    title = "Positive Words in Emma (BING)", 
+    x = "Frequency",
+    y = NULL
+  )
+```
