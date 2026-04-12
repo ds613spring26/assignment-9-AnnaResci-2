@@ -45,3 +45,12 @@ emma_lines <- austen_books() %>%
   ungroup() %>%
   filter(book == "Emma")
 ```
+
+## Step 2: Tokenization 
+
+In this step I convert the text into a tidy format using "unnest_tokens()", where each word becomes a separate row. This format is required for sentiment analysis.
+
+```{r}
+emma_words <- emma_lines %>%
+  unnest_tokens(word, text)
+```
