@@ -27,3 +27,21 @@ library(stringr)
 library(wordcloud)
 library(RColorBrewer)
 ```
+
+## Step 1: Data wrangling 
+
+In this step I load the 'Jane Austen' dataset and prepare the data for analysis. I create a "linenumber" variable to track each line and a "chapter" variable by detecting chapter headings using a regular expression. Finally, I filter the dataset to keep only the book 'Emma'.
+
+```{r}
+emma_lines <- austen_books() %>%
+  group_by(book) %>%
+  mutate(
+    linenumber = row_number(),
+    chapter = cumsum(str_detect(
+      text, 
+      regex("^chapter [\\divxlc]", ignore_case = TRUE)
+    ))
+  ) %>%
+  ungroup() %>%
+  filter(book == "Emma")
+```
