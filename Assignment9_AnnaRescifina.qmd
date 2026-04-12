@@ -177,3 +177,7 @@ wordcloud(
   colors = brewer.pal(8, "Paired")
 )
 ```
+
+## Conclusion 
+
+In this analysis I used three different sentiment lexicons to identify positive and joyful words in *Emma*. While each lexicon defines sentiment differently, all three highlight recurring positive language in the novel. The visualization show that *Emma* contains a consistent presence of emotionally positive vocabulary.
