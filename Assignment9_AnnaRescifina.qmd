@@ -136,3 +136,17 @@ wordcloud(
   colors = brewer.pal(8, "Set2")
 )
 ```
+
+## Step 3c: BING Sentiment Analysis (Positive)
+
+The BING lexicon classifies words as either positive or negative. Here, I filter for positive words, count their frequency, and visualize the most common ones.
+
+```{r}
+emma_bing <- emma_words %>%
+  inner_join(
+    get_sentiments("bing") %>% filter(sentiment == "positive"),
+    by = "word"
+  ) %>%
+  count(word, sort = TRUE) %>%
+  filter(n > 50)
+```
