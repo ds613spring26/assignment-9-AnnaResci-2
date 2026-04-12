@@ -1,5 +1,6 @@
 ---
 title: "Homework Assignment: Sentiment Analysis of Emma"
+author: "Anna Rescifina"
 format: html
 editor: visual
 ---
