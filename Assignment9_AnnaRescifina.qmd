@@ -164,3 +164,16 @@ emma_bing %>%
     y = NULL
   )
 ```
+
+## Word Cloud 
+
+```{r}
+wordcloud(
+  words = emma_bing$word,
+  freq = emma_bing$n,
+  min.freq = 1,
+  max.words = 100,
+  random.order = FALSE,
+  colors = brewer.pal(8, "Paired")
+)
+```
