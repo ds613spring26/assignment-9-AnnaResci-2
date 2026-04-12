@@ -10,7 +10,7 @@ execute:
 
 ## Overview 
 
-In this assignment, I use the \`tidytext\` framework and three sentiment lexicons (\`nrc\`, \`afinn\`, and \`bing\`) to explore positive and joyful words in \*Emma\* by Jane Austen. I first prepare and tokenize the text, then join it with each lexicon, count frequent sentiment words, and visualize the results with bar charts and word clouds.
+In this assignment, I use the **tidytext** framework and three sentiment lexicons (**nrc**, **afinn**, and **bing**) to explore positive and joyful words in *Emma* by Jane Austen. I first prepare and tokenize the text, then join it with each lexicon, count frequent sentiment words, and visualize the results with bar charts and word clouds.
 
 ## SetUp and Libraries Loading
 
@@ -98,7 +98,7 @@ wordcloud(
 
 ## Step 3b: AFINN Sentiment Analysis (Positive)
 
-The AFINN lexicon assigns numeric sentiment scores. In this step, I select only words with positive sentiment (Score\>/= 1); then count and visualize the most frequent ones.
+The AFINN lexicon assigns numeric sentiment scores. In this step, I select only words with positive sentiment (Score\>= 1); then count and visualize the most frequent ones.
 
 ```{r}
 emma_afinn <- emma_words %>%
@@ -180,4 +180,4 @@ wordcloud(
 
 ## Conclusion 
 
-In this analysis I used three different sentiment lexicons to identify positive and joyful words in *Emma*. While each lexicon defines sentiment differently, all three highlight recurring positive language in the novel. The visualization show that *Emma* contains a consistent presence of emotionally positive vocabulary.
+In this analysis I used three different sentiment lexicons to identify positive and joyful words in *Emma*. While each lexicon defines sentiment differently, all three highlight recurring positive language in the novel. The visualizations show that *Emma* contains a consistent presence of emotionally positive vocabulary.
