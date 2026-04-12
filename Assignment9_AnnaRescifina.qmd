@@ -54,3 +54,17 @@ In this step I convert the text into a tidy format using "unnest_tokens()", wher
 emma_words <- emma_lines %>%
   unnest_tokens(word, text)
 ```
+
+## Step 3: NRC Sentiment Analysis (Joy)
+
+Using the NRC lexicon I focus specifically on words associated with the emotion joy. I join the tokenized words with the NRC dataset, count word frequencies, and keep only the most frequent words (n\>50).
+
+```{r}
+emma_nrc <- emma_words %>%
+  inner_join(
+    get_sentiments("nrc") %>% filter(sentiment == "joy"),
+    by = "word"
+  ) %>%
+  count(word, sort = TRUE) %>%
+  filter(n > 50)
+```
