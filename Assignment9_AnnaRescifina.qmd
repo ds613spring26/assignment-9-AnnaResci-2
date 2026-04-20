@@ -1,14 +1,17 @@
 ---
+---
 title: "Assignment 9: Sentiment Analysis of Emma"
 author: "Anna Rescifina"
-format: html
+format:
+  html:
+    self-contained: true
 execute:
   echo: true
   warning: false
   message: false
 ---
 
-## Overview 
+## Overview
 
 In this assignment, I use the **tidytext** framework and three sentiment lexicons (**nrc**, **afinn**, and **bing**) to explore positive and joyful words in *Emma* by Jane Austen. I first prepare and tokenize the text, then join it with each lexicon, count frequent sentiment words, and visualize the results with bar charts and word clouds.
 
@@ -28,7 +31,7 @@ library(wordcloud)
 library(RColorBrewer)
 ```
 
-## Step 1: Data wrangling 
+## Step 1: Data wrangling
 
 In this step I load the 'Jane Austen' dataset and prepare the data for analysis. I create a "linenumber" variable to track each line and a "chapter" variable by detecting chapter headings using a regular expression. Finally, I filter the dataset to keep only the book 'Emma'.
 
@@ -46,7 +49,7 @@ emma_lines <- austen_books() %>%
   filter(book == "Emma")
 ```
 
-## Step 2: Tokenization 
+## Step 2: Tokenization
 
 In this step I convert the text into a tidy format using "unnest_tokens()", where each word becomes a separate row. This format is required for sentiment analysis.
 
@@ -83,7 +86,9 @@ emma_nrc %>%
   )
 ```
 
-## Word Cloud 
+This result suggests that positive emotional expressions are prominent throughout the text. The presence of strong positive categories such as joy indicates that the language used in the novel reflects generally optimistic or pleasant emotional tones rather than negative ones.
+
+## Word Cloud
 
 ```{r}
 wordcloud(
@@ -124,7 +129,9 @@ emma_afinn %>%
     )
 ```
 
-## Word Cloud 
+Since the AFINN lexicon assigns numerical scores to words, the predominance of positive values further supports the idea that the overall tone of the text leans positive. This provides a more quantitative confirmation of the pattern observed with the NRC lexicon.
+
+## Word Cloud
 
 ```{r}
 wordcloud(
@@ -139,7 +146,7 @@ wordcloud(
 
 ## Step 3c: BING Sentiment Analysis (Positive)
 
-The BING lexicon classifies words as either positive or negative. Here, I filter for positive words, count their frequency, and visualize the most common ones.
+The BING lexicon simplifies sentiment into positive or negative categories, and the dominance of positive words confirms the overall trend observed using more detailed sentiment methods.
 
 ```{r}
 emma_bing <- emma_words %>%
@@ -165,7 +172,9 @@ emma_bing %>%
   )
 ```
 
-## Word Cloud 
+Similar patterns appear using the BING lexicon, showing consistency across different sentiment methods
+
+## Word Cloud
 
 ```{r}
 wordcloud(
@@ -178,6 +187,6 @@ wordcloud(
 )
 ```
 
-## Conclusion 
+## Conclusion
 
-In this analysis I used three different sentiment lexicons to identify positive and joyful words in *Emma*. While each lexicon defines sentiment differently, all three highlight recurring positive language in the novel. The visualizations show that *Emma* contains a consistent presence of emotionally positive vocabulary.
+Overall, the sentiment analysis of *Emma* reveals a predominantly positive emotional tone. This pattern is consistent across the NRC, AFINN, and BING lexicons, which strengthens the reliability of the findings. The agreement across multiple methods suggests that the results are not dependent on a single approach, but instead reflect a consistent characteristic of the text. This indicates that the language used throughout the novel conveys generally positive emotions and attitudes
